@@ -16,5 +16,5 @@
 });
 */
 
-Route::get('/', 'TasklistsController@index');
-Route::resource('tasklists', 'TasklistsController');
+Route::get('/', 'TasksController@index');
+Route::resource('tasks', 'TasksController');

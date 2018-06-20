@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Tasklist</title>
+        <title>Task</title>
     </head>
 
     <body>

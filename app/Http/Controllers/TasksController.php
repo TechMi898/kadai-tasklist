@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Tasklist;
+use App\Task;
 
-class TasklistsController extends Controller
+class TasksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class TasklistsController extends Controller
      */
     public function index()
     {
-        $tasklists = Tasklist::all();
+        $tasks = Task::all();
         
-        return view('tasklists.index', [
-            'tasklists' => $tasklists,
+        return view('tasks.index', [
+            'tasks' => $tasks,
             ]);
     }
 
@@ -29,10 +29,10 @@ class TasklistsController extends Controller
      */
     public function create()
     {
-        $tasklist = new Tasklist;
+        $task = new Task;
         
-        return view('tasklists.create', [
-            'tasklist' => $tasklist,
+        return view('tasks.create', [
+            'task' => $task,
             ]);
     }
 
@@ -44,9 +44,9 @@ class TasklistsController extends Controller
      */
     public function store(Request $request)
     {
-        $tasklist = new Tasklist;
-        $tasklist->content = $request->content;
-        $tasklist->save();
+        $task = new Task;
+        $task->content = $request->content;
+        $task->save();
         
         return redirect('/');
     }
@@ -59,10 +59,10 @@ class TasklistsController extends Controller
      */
     public function show($id)
     {
-        $tasklist = Tasklist::find($id);
+        $task = Task::find($id);
         
-        return view('tasklists.show', [
-            'tasklist' => $tasklist,
+        return view('tasks.show', [
+            'task' => $task,
             ]);
     }
 
@@ -74,10 +74,10 @@ class TasklistsController extends Controller
      */
     public function edit($id)
     {
-        $tasklist = Tasklist::find($id);
+        $task = Task::find($id);
         
-        return view('tasklists.edit', [
-            'tasklist' => $tasklist,
+        return view('tasks.edit', [
+            'task' => $task,
             ]);
     }
 
@@ -90,9 +90,9 @@ class TasklistsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tasklist = Tasklist::find($id);
-        $tasklist->content = $request->content;
-        $tasklist->save();
+        $task = Task::find($id);
+        $task->content = $request->content;
+        $task->save();
         
         return redirect('/');
     }
@@ -105,8 +105,8 @@ class TasklistsController extends Controller
      */
     public function destroy($id)
     {
-        $tasklist = Tasklist::find($id);
-        $tasklist->delete();
+        $task = Task::find($id);
+        $task->delete();
         
         return redirect('/');
     }
